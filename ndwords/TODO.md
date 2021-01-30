@@ -23,17 +23,18 @@ beautiful
 Day
 !
 ```
-Note that it looks like the text is trimmed... or there is something with the encoding (pdf fun?).
+**Note** that it looks like the text is trimmed... or there is something with the encoding (pdf fun?).
+**NOTE** `everyone` and `day` seem to capitalized, this may be a mistake in the question, but work pointing out.
 
 **Bonus Points**
 Secure endpoint with Basic Auth and enforce HTTPS for API requests
 
 ## Plan
 
-1. Create and test javascript (js) function to parse message
-2. Use serverless to deploy api gateway and `ndwords` lambda, returning the js function output in the response
-3. Return only a 200 from the `ndwords` lambda and store the js function output in S3
-4. Create `authorizer` function and assign authorizer to `ndwords` lambda
+- [x] Create and test javascript (js) function to parse message
+- [ ] Use serverless to deploy api gateway and `ndwords` lambda, returning the js function output in the response
+- [ ] Return only a 200 from the `ndwords` lambda and store the js function output in S3
+- [ ] Create `authorizer` function and assign authorizer to `ndwords` lambda
   1. Support only one username and password for testing
   2. Username and password should be variables
 
