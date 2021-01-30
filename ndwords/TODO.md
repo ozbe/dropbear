@@ -32,7 +32,7 @@ Secure endpoint with Basic Auth and enforce HTTPS for API requests
 ## Plan
 
 - [x] Create and test javascript (js) function to parse message
-- [ ] Use serverless to deploy api gateway and `ndwords` lambda, returning the js function output in the response
+- [x] Use serverless to deploy api gateway and `ndwords` lambda, returning the js function output in the response
 - [ ] Return only a 200 from the `ndwords` lambda and store the js function output in S3
 - [ ] Create `authorizer` function and assign authorizer to `ndwords` lambda
   1. Support only one username and password for testing

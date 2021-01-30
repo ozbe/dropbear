@@ -13,3 +13,13 @@ function generateContent(words) {
   return words.join('\n');
 }
 module.exports.generateContent = generateContent;
+
+module.exports.ndwords = async (event, _context) => {
+  const tokens = tokenize(event.body);
+  const content = generateContent(tokens);
+
+  return {
+    statusCode: 200,
+    body: content,
+  }
+}

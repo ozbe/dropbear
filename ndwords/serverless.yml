@@ -1,0 +1,15 @@
+service: ndwords
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  
+functions:
+  ndwords:
+    handler: src/index.ndwords
+    events:
+      - httpApi:
+          method: POST
+          path: /ndwords
