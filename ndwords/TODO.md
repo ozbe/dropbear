@@ -33,8 +33,8 @@ Secure endpoint with Basic Auth and enforce HTTPS for API requests
 
 - [x] Create and test javascript (js) function to parse message
 - [x] Use serverless to deploy api gateway and `ndwords` lambda, returning the js function output in the response
-- [ ] Return only a 200 from the `ndwords` lambda and store the js function output in S3
-- [ ] Create `authorizer` function and assign authorizer to `ndwords` lambda
+- [x] Return only a 200 from the `ndwords` lambda and store the js function output in S3
+- [x] Create `authorizer` function and assign authorizer to `ndwords` lambda
   1. Support only one username and password for testing
   2. Username and password should be variables
 
@@ -54,17 +54,12 @@ Serverless enables you to quickly and effectively create AWS resources and deplo
 ## Improvements
 
 * serverless-offline for local development
+  * https://www.serverless.com/plugins/serverless-offline-local-authorizers-plugin
 * Better test coverage (and output test coverage)
 * typescript support for type safety
+* `sls invoke local` support. Something like `npx serverless invoke local --function ndwords --data " Hello everyone, today is a beautiful day! "`
 
 ## Notes
-
-
-### Basic Auth
-
-```
-echo -n "username:password" | base64
-```
 
 ## References 
 

@@ -1,4 +1,4 @@
-const { generateContent, tokenize } = require('../src/index');
+const { generateContent, tokenize } = require('../src/ndword/index');
 
 describe('tokenize', () => {
   test('problem provided input', () => {
