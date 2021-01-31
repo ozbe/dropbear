@@ -14,7 +14,7 @@ $ npm install
 
 ### Prereqs
 
-1. `awscli` configured to the profile (AWS_PROFILE) to use for deployment
+1. `awscli` configured to the profile (`AWS_PROFILE`) to use for deployment.
 
 ### Deploy
 
@@ -25,6 +25,8 @@ $ npx serverless deploy --aws-profile <AWS_PROFILE>
 ### Test
 
 #### curl
+
+**NOTE** If you changed the `authorizer`'s `USERNAME` and `PASSWORD`, you will have to change the credentials in the `Authorization` header.
 
 ```
 $ ENDPOINT=$(npx serverless info --aws-profile dropbear | awk '{ if ($1 == "POST" )  print $3 }')
