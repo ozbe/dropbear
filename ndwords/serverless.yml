@@ -5,7 +5,10 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
-  
+
+plugins:
+  - serverless-iam-roles-per-function
+
 functions:
   ndwords:
     handler: src/index.ndwords
@@ -13,3 +16,25 @@ functions:
       - httpApi:
           method: POST
           path: /ndwords
+    environment:
+      REGION:
+        !Ref 'AWS::Region'
+      BUCKET_NAME: 
+        Ref: ndwordsBucket
+    iamRoleStatements:
+    -  Effect: "Allow"
+       Action:
+         - "s3:PutObject"
+       Resource:
+         Fn::Join:
+           - ""
+           - - "arn:aws:s3:::"
+             - Ref: ndwordsBucket
+             - '/*'
+
+resources:
+  Resources:
+    ndwordsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ndwords

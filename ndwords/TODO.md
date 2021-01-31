@@ -51,6 +51,11 @@ Serverless enables you to quickly and effectively create AWS resources and deplo
 
 **TODO** This assumes servleress works as I hope and it is that quick. Revisit later
 
+## Improvements
+
+* serverless-offline for local development
+* Better test coverage (and output test coverage)
+* typescript support for type safety
 
 ## Notes
 
