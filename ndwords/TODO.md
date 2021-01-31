@@ -1,5 +1,9 @@
 # newline delimited words (ndwords)
 
+## Oustanding Questions
+1) In the example output it looks like the text is trimmed... or there is something with the encoding (pdf fun?). What encoding should be supported by this lambda and are there any special cases that should be considered?
+2) In the example output,  `everyone` and `day` seem to capitalized. Is this a mistake or are there some undefined requirements to capilization?
+
 ## Requirements
 
 * AWS API Gateway - ingress, POST
@@ -23,8 +27,6 @@ beautiful
 Day
 !
 ```
-**Note** that it looks like the text is trimmed... or there is something with the encoding (pdf fun?).
-**NOTE** `everyone` and `day` seem to capitalized, this may be a mistake in the question, but work pointing out.
 
 **Bonus Points**
 Secure endpoint with Basic Auth and enforce HTTPS for API requests
@@ -49,19 +51,20 @@ Secure endpoint with Basic Auth and enforce HTTPS for API requests
 ### Terraform vs Serverless
 Serverless enables you to quickly and effectively create AWS resources and deploy lambda functions. Given this is a technical challenge, I went with Severless for expediency. We could use Terraform to solve the same problem (though, I likely wouldn't deploy the lambdas themselves via Terraoform), but it would take more effort to do the initial setup and deployment.
 
-**TODO** This assumes servleress works as I hope and it is that quick. Revisit later
-
 ## Improvements
 
+* Improve the authorization with using something like Cognito or Auth0
+  * At the very least get the `PASSWORD` out of `serverless.yml`
+* Review Resource access
+* Evaluate if there is room to optimize the Lambda size
+* Better test coverage (and output test coverage). 
+  * More inputs for transform
+  * The handler and upload have no test coverage
+* Typescript support for type safety and errors during development and build time
+* Convert to ES6 modules for consistency across projects
+* `sls invoke local` support for local testing to avoid needing to deploy. This broke when I added the S3 bucket, but can be fixed.
+  * Something like `npx serverless invoke local --function ndwords --data " Hello everyone, today is a beautiful day! "`
 * serverless-offline for local development
   * https://www.serverless.com/plugins/serverless-offline-local-authorizers-plugin
-* Better test coverage (and output test coverage)
-* typescript support for type safety
-* `sls invoke local` support. Something like `npx serverless invoke local --function ndwords --data " Hello everyone, today is a beautiful day! "`
-
-## Notes
-
-## References 
-
-- https://registry.terraform.io/providers/hashicorp/aws/latest/docs
-- https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html
+* If the resources being created are used by other Lambda functions or services, it may be better to move the resource management to something like Terraform.
+* Add linting

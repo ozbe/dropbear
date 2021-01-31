@@ -29,6 +29,7 @@ Live Video Id: 2799266743649556
 - [ ] Display of post reactions.
 - [ ] Dynamic update of new posts. If someone makes new comments on your post after
 the loading of your display page, your page should subsequently show these updates without requiring a browser reload.
+  * [Server-sent events](https://developers.facebook.com/docs/graph-api/server-sent-events)
 
 ### Requirements
 * ReactJS
@@ -41,11 +42,11 @@ the loading of your display page, your page should subsequently show these updat
 ### Improvements
 
 * Finish requested features
-* Populate with real data - The data is fake. Setup a server the frontend can call to get the required data. The server can use the access token provided by the challenge and alter the data to fit the needs of the UI
+* Populate with real data
+  * After bootstraping the project I went on to defining the fake data I'd be using. This fake data was a poor man's client/server contract and a way to work on the frontend without the backend.
+  * A service should be setup for the frontend to call to get the required data. The server can use the access token provided by the challenge and alter the data format to fit the needs of the UI
+  * When integrating the backend in the frontend, I would likely introduce Redux with the Fake data to manage the state, and then transition to using the backend via the relevant actions
 * Tests - there aren't any and we should test the React components and server functionality to ensure help insure quality
-* Apply better looking and maintainable styling
+* Apply better and maintainable styling
 * Address audit warnings from npm
-
-### Notes
-
-* [Server-sent events](https://developers.facebook.com/docs/graph-api/server-sent-events)
+* Add linting
