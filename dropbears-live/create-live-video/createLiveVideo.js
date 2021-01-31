@@ -28,7 +28,8 @@ const createLiveVideo = () => {
     'POST',
     {
       description: 'Testing',
-      title: 'Dropbears Live',
+      title: 'Dropbears Live Now',
+      status: 'LIVE_NOW',
     },
     handleResponse
   );
