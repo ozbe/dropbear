@@ -6,7 +6,7 @@ const generateAuthorizationToken = () => {
 
 const AUTHORIZATION_TOKEN = generateAuthorizationToken();
 
-const genreatePolicy = (principalId, effect, resource) => {
+const generatePolicy = (principalId, effect, resource) => {
   const authResponse = {
     principalId
   };
@@ -36,7 +36,7 @@ module.exports.authorizer = async (event) => {
   }
 
   if (authToken === AUTHORIZATION_TOKEN) {
-    return genreatePolicy('user', 'allow', methodArn);
+    return generatePolicy('user', 'allow', methodArn);
   }
 
   throw new Error('Unauthorized');
